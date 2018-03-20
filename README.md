@@ -1,14 +1,13 @@
-# attention-ocr
-图片文字识别-中文识别
-#通过CPU训练模型需要做以下修改：
+图片文字识别-中文识别  
+-----------------------------------
+###通过CPU训练模型需要做以下修改：
 CPU Setting:
-(1) Set "USE_GPU_NMS " in the file ./ctpn/text.yml as "False"
-(2) Set the "__C.USE_GPU_NMS" in the file ./lib/fast_rcnn/config.py as "False";
-(3) Comment out the line "from lib.utils.gpu_nms import gpu_nms" in the file ./lib/fast_rcnn/nms_wrapper.py;
-(4) To rebuild the setup.py in path "[path]/text-detection-ctpn/lib/utils/setup.py":
-(5) cd xxx/text-detection-ctpn-master/lib/utils
-and execute:python setup.py build
-(6) copy the .so file from the "build" directory to the
+        (1) Set "USE_GPU_NMS " in the file ./ctpn/text.yml as "False"
+        (2) Set the "__C.USE_GPU_NMS" in the file ./lib/fast_rcnn/config.py as "False";
+        (3) Comment out the line "from lib.utils.gpu_nms import gpu_nms" in the file ./lib/fast_rcnn/nms_wrapper.py;
+        (4) To rebuild the setup.py in path "[path]/text-detection-ctpn/lib/utils/setup.py":
+        (5) cd xxx/text-detection-ctpn-master/lib/utils and execute:python setup.py build
+        (6) copy the .so file from the "build" directory to the
 xxx/text-detection-ctpn-master/lib/utils.
 (7) cd xxx/text-detection-ctpn-master
 and execute: python ./ctpn/demo.py
